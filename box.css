@@ -1,0 +1,83 @@
+.container{
+    min-width: 600px;
+}
+#checked{
+    width: 100px;
+}
+#game{
+    display: none;
+    position: relative;
+}
+#house{
+    position: absolute;
+    top: 100px;
+}
+.btn_container{
+    position: absolute;
+}
+.bg{
+    position: absolute;
+    width:50px;
+    height:50px;
+    box-sizing: border-box;
+}
+.block{
+    position: absolute;
+    background-image: url(images/wall.png);
+    width:50px;
+    height:50px;
+    box-sizing: border-box;
+}
+.box{
+    position: absolute;
+    background: #fbd500;
+    width:50px;
+    height:50px;
+    background-image: url(images/box.png);
+}
+.target{
+    position: absolute;
+    background: url(images/target.jpg);
+    background-size: 50px 50px;;
+    width:50px;
+    height:50px;
+    box-sizing: border-box;
+}
+#person{
+    background-image: url(images/person.png);
+    width:50px;
+    height:50px;
+    position: absolute;
+}
+#person.up{
+    background-position: 0 0;
+}
+#person.right{
+    background-position:-50px 0 ;
+}
+#person.bottom{
+    background-position:-100px 0 ;
+}
+#person.left{
+    background-position:-150px 0 ;
+}
+/*移动端的DOM*/
+.operate-bar{
+    font-size:30px;
+}
+.height20percent{
+    height:30%;
+}
+.height30percent{
+    height:30%;
+}
+.height40percent{
+    height:40%;
+}
+.height100percent{
+    height:100%;
+}
+.font30{
+    font-size:30px;
+    color:#34495e;
+}

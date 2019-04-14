@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>推箱子</title>
+    <link rel="stylesheet" href="css/zepto.alert.css"/>
+    <link rel="stylesheet" href="box.css"/>
+</head>
+<body>
+<div class="container">
+    <div id="select">
+        <span>选择关卡：</span>
+        <select id="checked">
+            <option value="0">1</option>
+            <option value="1">2</option>
+            <option value="2">3</option>
+            <option value="3">4</option>
+            <option value="4">5</option>
+            <option value="5">6</option>
+        </select>
+        <button id="start">开始游戏</button>
+    </div>
+    <div id="game">
+        <div class="btn_container">
+            <button onclick="reloadGame()">返回选择关卡</button>
+        </div>
+        <div id="house">
+        </div>
+
+    </div>
+</div>
+<script src="libs/jquery_v3.3.1.min.js"></script>
+<script src="libs/handlebars-v4.1.2.js"></script>
+<script src="libs/zepto.min.js"></script>
+<script src="libs/zepto.alert.js"></script>
+<script id="tpl" type="text/x-handlebars-template">
+    {{#initY}}{{/initY}}
+    {{#each this}}
+    {{#each this}}
+    <div class="{{#getClass this}}{{/getClass}}" data-x="{{@index}}" data-y="{{#getY}}{{/getY}}" style="left:{{#calc @index}}{{/calc}};top:{{#calc 1111}}{{/calc}}">
+        <!--{{@index}}
+        {{#getY}}{{/getY}}
+        -->
+    </div>
+    {{/each}}
+    {{#addY}}{{/addY}}
+    {{/each}}
+</script>
+<script>
+    (function() {
+        var y = 0;
+        Handlebars.registerHelper("initY", function() {
+            y = 0;
+        });
+        Handlebars.registerHelper("addY", function() {
+            y++;
+        });
+        Handlebars.registerHelper("getY", function() {
+            return y;
+        });
+        Handlebars.registerHelper("calc", function(arg) {
+            //console.log(arg)
+            if(arg!==1111) {
+                return 50*arg + "px";
+            }else{
+                return 50*y + "px";
+            };
+        });
+        Handlebars.registerHelper("getClass", function(arg) {
+            switch( arg ) {
+                case 0 :
+                    return "bg"
+                case 1 :
+                    return "block"
+                case 2 :
+                    return "box"
+                case 3 :
+                    return "target"
+            };
+        });
+        window.util = {
+            isMobile : function() {
+                return navigator.userAgent.toLowerCase().indexOf("mobile") !== -1 || navigator.userAgent.toLowerCase().indexOf("android") !== -1 || navigator.userAgent.toLowerCase().indexOf("pad") !== -1;
+            }
+        }
+    })();
+</script>
+<script type="text/javascript" src="box.js"></script>
+</body>
+</html>
